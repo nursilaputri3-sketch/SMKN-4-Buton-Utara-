@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SMKN 4 Buton Utara</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#f4f7fb;
+      color:#333;
+      overflow-x:hidden;
+    }
+
+    header{
+      background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+      url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      height:100vh;
+      color:white;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(0,0,0,0.3);
+      position:fixed;
+      width:100%;
+      z-index:1000;
+      backdrop-filter:blur(10px);
+    }
+
+    nav h1{
+      font-size:28px;
+      color:#ffd700;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ffd700;
+    }
+
+    .hero{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      height:100vh;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      max-width:800px;
+      line-height:1.8;
+      font-size:18px;
+    }
+
+    .btn{
+      margin-top:30px;
+      padding:15px 35px;
+      background:#ffd700;
+      color:#000;
+      border:none;
+      border-radius:40px;
+      font-size:18px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+      text-decoration:none;
+    }
+
+    .btn:hover{
+      background:white;
+      transform:scale(1.05);
+    }
+
+    section{
+      padding:80px 8%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .title h2{
+      font-size:40px;
+      color:#0a3d62;
+      margin-bottom:10px;
+    }
+
+    .title p{
+      color:#777;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .about-text p{
+      line-height:1.9;
+      margin-bottom:20px;
+    }
+
+    .jurusan{
+      background:white;
+    }
+
+    .card-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:20px;
+      padding:30px;
+      text-align:center;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:90px;
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      color:#0a3d62;
+      margin-bottom:15px;
+    }
+
+    .card p{
+      color:#666;
+      line-height:1.7;
+    }
+
+    .prestasi{
+      background:#0a3d62;
+      color:white;
+    }
+
+    .prestasi-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .prestasi-item{
+      background:rgba(255,255,255,0.1);
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+    }
+
+    .prestasi-item h3{
+      font-size:40px;
+      color:#ffd700;
+    }
+
+    .galeri{
+      background:white;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .gallery img{
+      width:100%;
+      border-radius:15px;
+      height:250px;
+      object-fit:cover;
+      transition:0.3s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    .contact{
+      background:#f0f4ff;
+    }
+
+    .contact-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .info{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .info h3{
+      margin-bottom:20px;
+      color:#0a3d62;
+    }
+
+    footer{
+      background:#0a3d62;
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+    @media(max-width:768px){
+      .hero h2{
+        font-size:40px;
+      }
+
+      nav ul{
+        display:none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <nav>
+    <h1>SMKN 4 BUTUR</h1>
+
+    <ul>
+      <li><a href="#about">Profil</a></li>
+      <li><a href="#jurusan">Jurusan</a></li>
+      <li><a href="#prestasi">Prestasi</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h2>SMKN 4 BUTON UTARA</h2>
+    <p>
+      Sekolah Menengah Kejuruan unggulan yang siap mencetak generasi
+      cerdas, terampil, kreatif, dan siap kerja di era digital.
+    </p>
+
+    <a href="#about" class="btn">Lihat Profil</a>
+  </div>
+
+</header>
+
+<section id="about">
+
+  <div class="title">
+    <h2>Profil Sekolah</h2>
+    <p>Informasi tentang SMKN 4 Buton Utara</p>
+  </div>
+
+  <div class="about">
+
+    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="about-text">
+      <p>
+        SMKN 4 Buton Utara merupakan sekolah kejuruan yang berada di Kabupaten
+        Buton Utara, Sulawesi Tenggara. Sekolah ini memiliki komitmen dalam
+        membangun sumber daya manusia yang unggul, disiplin, dan profesional.
+      </p>
+
+      <p>
+        Dengan dukungan tenaga pendidik berkualitas dan fasilitas pembelajaran
+        modern, sekolah terus berkembang menjadi pusat pendidikan vokasi yang
+        menghasilkan lulusan siap kerja maupun siap melanjutkan pendidikan.
+      </p>
+
+      <p>
+        Alamat Sekolah: Jl. H. Ben No.1 Laea, Kabupaten Buton Utara,
+        Sulawesi Tenggara.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="jurusan" id="jurusan">
+
+  <div class="title">
+    <h2>Program Keahlian</h2>
+    <p>4 Jurusan unggulan SMKN 4 Buton Utara</p>
+  </div>
+
+  <div class="card-container">
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721291.png">
+      <h3>TKJ</h3>
+      <p>
+        Teknik Komputer dan Jaringan mempelajari komputer,
+        jaringan internet, server, mikrotik, dan teknologi digital.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135679.png">
+      <h3>Akuntansi</h3>
+      <p>
+        Jurusan Akuntansi mempelajari laporan keuangan,
+        administrasi bisnis, perpajakan, dan manajemen keuangan.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3079/3079165.png">
+      <h3>Teknik Listrik</h3>
+      <p>
+        Teknik Listrik mempelajari instalasi listrik,
+        sistem tenaga listrik, dan perawatan kelistrikan.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png">
+      <h3>BKP / TKP</h3>
+      <p>
+        Bisnis Konstruksi Properti / Teknik Konstruksi dan Perumahan
+        mempelajari desain bangunan dan konstruksi modern.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="prestasi" id="prestasi">
+
+  <div class="title">
+    <h2 style="color:white;">Prestasi Sekolah</h2>
+    <p style="color:#ddd;">Pencapaian dan perkembangan sekolah</p>
+  </div>
+
+  <div class="prestasi-box">
+
+    <div class="prestasi-item">
+      <h3>4</h3>
+      <p>Program Keahlian</p>
+    </div>
+
+    <div class="prestasi-item">
+      <h3>100+</h3>
+      <p>Siswa Aktif</p>
+    </div>
+
+    <div class="prestasi-item">
+      <h3>B</h3>
+      <p>Akreditasi Sekolah</p>
+    </div>
+
+    <div class="prestasi-item">
+      <h3>2012</h3>
+      <p>Tahun Berdiri</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="galeri" id="galeri">
+
+  <div class="title">
+    <h2>Galeri Sekolah</h2>
+    <p>Kegiatan dan suasana sekolah</p>
+  </div>
+
+  <div class="gallery">
+
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop">
+
+    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1200&auto=format&fit=crop">
+
+  </div>
+
+</section>
+
+<section class="contact" id="kontak">
+
+  <div class="title">
+    <h2>Kontak Sekolah</h2>
+    <p>Hubungi kami untuk informasi lebih lanjut</p>
+  </div>
+
+  <div class="contact-box">
+
+    <div class="info">
+      <h3>Alamat</h3>
+      <p>
+        Jl. H. Ben No.1 Laea, Kabupaten Buton Utara,
+        Sulawesi Tenggara
+      </p>
+    </div>
+
+    <div class="info">
+      <h3>Email</h3>
+      <p>smkn4butur@gmail.com</p>
+    </div>
+
+    <div class="info">
+      <h3>Telepon</h3>
+      <p>+62 812-xxxx-xxxx</p>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  <p>
+    © 2026 SMKN 4 Buton Utara | Website Resmi Sekolah
+  </p>
+</footer>
+
+</body>
+</html>
